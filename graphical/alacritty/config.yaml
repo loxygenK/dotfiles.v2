@@ -1,0 +1,101 @@
+font:
+  normal:
+    family: Plemol JP
+    style: Text
+
+  size: 16
+
+  offset:
+    x: 0
+    y: 3
+
+window:
+  padding:
+    x: 75
+    y: 70
+
+colors:
+  primary:
+    # background: "#f5f4f5"
+    # background: "#efebed"
+    # background: "#e4dde0"
+    background: "#fafafa"
+    # foreground: "#371f30"
+    foreground: "#5c6166"
+  normal:
+    # High contrast
+    # black  : "#522e47" # <--
+    # red    : "#8c605b"
+    # green  : "#5f8c5b" # <--
+    # yellow : "#8c7e5b"
+    # blue   : "#5b698c"
+    # magenta: "#8c5b73"
+    # cyan   : "#5b878c"
+    # white  : "#d9ced9"
+
+    # Medium contrast
+    black  : "#5c6166" # <--
+    red    : "#f07171"
+    green  : "#86b300" # <--
+    yellow : "#f2ae49"
+    blue   : "#478acc"
+    magenta: "#a37acc"
+    cyan   : "#399ee6"
+    white  : "#d9ced9"
+
+    # black  : "#522e47" # <--
+    # red    : "#8c5048"
+    # green  : "#4e8c48" # <--
+    # yellow : "#8c7948"
+    # blue   : "#485b8c"
+    # magenta: "#8c4869"
+    # cyan   : "#48848c"
+    # white  : "#d9ced9"
+
+      # black  : "#522e47" # <--
+      # red    : "#c7766d"
+      # green  : "#76c76d" # <--
+      # yellow : "#c7ac6d"
+      # blue   : "#6d88c7"
+      # magenta: "#c76d9a"
+      # cyan   : "#6d88c7"
+      # white  : "#d9ced9"
+
+    # black  : "#522e47" # <--
+    # red    : "#c27279"
+    # green  : "#89c272" # <--
+    # yellow : "#b9c272"
+    # blue   : "#7b72c2"
+    # magenta: "#c272a9"
+    # cyan   : "#7299c2"
+    # white  : "#d9ced9"
+  bright:
+    black  : "#522e47" # <--
+    red    : "#ff7383"
+    green  : "#73a66c" # <--
+    yellow : "#f5ad1d"
+    blue   : "#1a78d6"
+    magenta: "#9852de"
+    cyan   : "#248af0"
+    white  : "#e4dde4"
+
+
+
+      #  normal:
+      #    black  : "#522e47" # <--
+      #    red    : "#ed5c6b"
+      #    green  : "#2e7744" # <--
+      #    yellow : "#9b8012"
+      #    blue   : "#6a5ced"
+      #    magenta: "#ed5cc2"
+      #    cyan   : "#5ca5ed"
+      #    white  : "#d9ced9"
+      #  bright:
+      #    black  : "#522e47" # <--
+      #    red    : "#ed828d"
+      #    green  : "#62b27a" # <--
+      #    yellow : "#d1b528"
+      #    blue   : "#9d92ed"
+      #    magenta: "#ed82cd"
+      #    cyan   : "#82b8ed"
+      #    white  : "#e4dde4"

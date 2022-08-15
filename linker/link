@@ -1,0 +1,89 @@
+#!/bin/bash
+
+F4N_DOTFILES_LOCATION="$HOME/.dotfiles"
+
+if [ "$F4N_DOTFILES_LOCATION" = "" ]; then
+	echo "[!] F4N_DOTFILES_LOCATION is empty. Please configure this environment to the path that the dotfiles exists."
+	exit 1
+fi
+
+base=$F4N_DOTFILES_LOCATION
+errorneous=0
+plan=$(mktemp)
+
+cd $(dirname $0)
+
+echo -e "\n\e[38;5;5;1m=== Planning symlinking...\e[m"
+
+if [ ! -f "./linktable.txt" ]; then
+	echo "[!] There is no 'linktable.txt' at the same directory of this script."
+	echo "    $(dirname $0)"
+	exit 1
+fi
+
+while read file_line; do
+	line=$(echo $file_line | sed "s/\s\+\(.*\)\s\+/\1/")
+	if [[ "$line" =~ ^// ]]; then
+		continue
+	fi
+	if [[ "$line" = "" ]]; then
+		continue
+	fi
+	bind_arg=(${line})
+
+	actual="$base/${bind_arg[0]}"
+	symlink="$HOME/${bind_arg[1]}"
+
+	if [ -L $symlink ]; then
+		echo -e "*   Already linked:\t$actual\t(To be linked to '$symlink')"
+		continue
+	fi
+
+	if [ ! -f $actual ] && [ ! -d $actual ] ; then
+		echo -e "\e[38;5;1;1m[!] Not existing:\t$actual\t(To be linked to '$symlink')\e[m"
+		errorneous=1
+		continue
+	fi
+
+	echo -e "\e[38;5;2;1m->  WILL BE LINKED:\t$actual\t(To be linked to '$symlink)\e[m"
+	echo "$actual $symlink" >> $plan
+done < ./linktable.txt
+
+echo ""
+
+if [ $errorneous -eq 1 ]; then
+	echo "[!] There were some error during the verification. Furtuer instructions are not commited."
+fi
+
+if [ "$(cat $plan)" = "" ]; then
+	echo "No file was planned to link."
+	exit 0
+fi
+
+read -p "[?] Check green line for files that will be linked. Okay? [yN]: " confirm
+
+if [ "$confirm" != "y" ]; then
+	echo "   Cancelled."
+	exit 2
+fi
+
+echo -e "\n\e[38;5;5;1m=== Linking...\e[m"
+
+
+while read line; do
+	bind_arg=(${line})
+
+	actual="${bind_arg[0]}"
+	symlink="${bind_arg[1]}"
+
+	mkdir -p $(dirname $symlink)
+	ln -s $actual $symlink
+	if [ $? -ne 0 ]; then
+		echo "[!] Linking failed ('$actual' -> '$symlink')."
+		echo "    Furtuer instruction will not be committed."
+		exit 1
+	fi
+	echo -e "\e[38;5;2;1m->  SUCESSFULLY LINKED:\t$actual\t(To be linked to '$symlink)\e[m"
+done < $plan
+
+echo "Everything was complete!"

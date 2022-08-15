@@ -1,0 +1,14 @@
+[plugins.abbr]
+github = "olets/zsh-abbr"
+# Target does not direct to the correct script at the first, so forcing using use
+use = ["zsh-abbr.zsh"]
+
+[plugins.auto-suggest]
+# Add support suggestion from the history.
+github = "zsh-users/zsh-autosuggestions"
+
+[plugins.highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+
+[plugins.visual-mode]
+github = "b4b4r07/zsh-vimode-visual"

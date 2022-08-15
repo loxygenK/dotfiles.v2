@@ -1,0 +1,2 @@
+source "$F4N_DOTFILES_LOCATION/cli/zsh/loader.zsh"
+# --- This line should exist at 2rd line! Lines above can be modified safely. but if lines below are modified an notification appears.

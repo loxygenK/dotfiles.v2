@@ -1,0 +1,29 @@
+//
+// LINK TABLE
+//
+// This file is used by the `link` script at the same directory of
+// this text file. 
+//
+// - The line where is empty or starts with `//` is ignored.
+// - Space charaters at the start or end of line is ignored.
+//
+// - Two paths are separated by the tab character.
+//   1. First path directs the file to be linked.
+//      The base of this path is the root of dotfiles ($F4N_DOTFILES_LOCATION.)
+//   2. Second path directs where the file should be linked to.
+//      The base of this path is the home directory ($HOME.)
+
+// CLI Environments
+cli/zsh/zshrc		.zshrc
+cli/sheldon/plugins.toml	.config/sheldon/plugins.toml
+cli/starship/starship.toml	.config/starship.toml
+cli/nvim		.config/nvim
+
+// Graphical Environments
+graphical/alacritty/config.yaml	.config/alacritty/alacritty.yml
+graphical/i3wm		.config/i3
+graphical/fcitx/config	.config/fcitx/config
+graphical/picom/config.conf	.config/picom/picom.conf
+graphical/polybar/config.ini      .config/polybar/config.ini
+
+// vim: set ft=c tabstop=17:
