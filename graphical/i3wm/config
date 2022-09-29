@@ -1,8 +1,13 @@
+set_from_resource $dotfiles_root echo "$F4N_DOTFILES_LOCATION"
+# set_from_resource $dotfiles_root echo "123"
+
 include "./config.d/*"
 
 set $mod Mod4
 
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id nm-applet
+
+bindsym $Mod+Shift+P exec --no-startup-id i3-nagbar -t warning -m Located:$dotfiles_root
 
 # vim: set syntax=i3config:

@@ -3,16 +3,16 @@ font:
     family: Plemol JP
     style: Text
 
-  size: 16
+  size: 8.5
 
   offset:
     x: 0
-    y: 3
+    y: 2
 
 window:
   padding:
-    x: 75
-    y: 70
+    x: 40
+    y: 30
 
 colors:
   primary:
